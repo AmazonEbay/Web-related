@@ -1,0 +1,41 @@
+现象：html 中vbscript 部分代码 在z最新IE浏览器中不显示，测试代码无错误（代码在IE 8 可正常显示效果）
+
+系统环境：windows 10 x86 
+
+浏览器：IE 11， IE Edge，Chrome（版本 55.0.2883.87 m）
+
+文件名：vbs.htm
+文件内容：
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/vbscript">
+Dim name
+name=Inputbox("请输入姓名：","名称")
+msgbox name, ,"姓名是"
+document.write("Hello from VBScript!")
+</script>
+
+</body>
+</html>
+
+
+根源：
+https://msdn.microsoft.com/library/dn384057(v=vs.85)
+
+影响
+适用于 IE11。
+影响 IE11 模式和可互操作的 Quirks 模式。
+
+IE11 边缘模式不再支持 VBScript
+
+从 Internet Explorer 11 开始，VBScript 被视为已弃用，不应该再用作 IE11 的脚本编制语言。 IE11 模式中显示的网页不会执行 VBScript 代码。
+因为 IE11 模式不再支持 VBScript，所以网页中无法再使用以下 API 功能：
+execScript 函数。
+VBArray 对象。
+"text/vbs" 和 "text/vbscript" MIME 类型（如同支持 script 元素的 type 值）。
+更新当前依赖于 VBSscript 的所有页面以使用 JavaScript. 如果这一方法不可行，请尝试将网页替换为使用 Visual Basic 编写的应用。
+出于兼容性原因，对于传统文档模式（IE10 标准模式以及更低版本），VBScript 不会执行，但是这应该被视为一种临时解决方案。
